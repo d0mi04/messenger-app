@@ -1,9 +1,17 @@
 # Node modules
 node_modules/
+/.pnp
+.pnp.js
 
 # Logi
 logs/
 *.log
+
+# testing
+/coverage
+
+# production
+/build
 
 # Pliki środowiskowe (tu masz hasło do MongoDB!)
 .env
@@ -23,3 +31,8 @@ build/
 # Jeśli dodasz React w tym samym repo
 client/node_modules/
 client/build/
+
+# misc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
