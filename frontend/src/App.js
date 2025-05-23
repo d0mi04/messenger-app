@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import jwtDecode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 
@@ -19,7 +19,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<LoginPage setUser={setUser} />} />
-        <Route path="/" element={user ? <HomePage user={user} /> : <navigate to="/login" />} />
+        <Route path="/" element={user ? <HomePage user={user} /> : <Navigate to="/login" />} />
       </Routes>
     </Router>
   );

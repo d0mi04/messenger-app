@@ -23,8 +23,8 @@ global._io = io;
 app.use(cors());
 app.use(express.json());
 
-app.use('./api/auth', authRoutes);
-app.use('./api/chats', chatRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/chats', chatRoutes);
 
 io.on('connection', (socket) => {
     console.log('New connection:', socket.id);
@@ -42,9 +42,13 @@ io.on('connection', (socket) => {
     });
 });
 
-mongoose.connect(process.env.MONGO_URI, () => {
-    console.log('✅ Connected to MongoDB Atlas');
-    server.listen(5000, () => {
-        console.log('Backend is running on http://localhost:5000')
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log('✅ Connected to MongoDB Atlas');
+        server.listen(5000, () => {
+            console.log('🚀 Backend is running on http://localhost:5000');
+        });
+    })
+    .catch((err) => {
+        console.error('❌ MongoDB connection error:', err);
     });
-});

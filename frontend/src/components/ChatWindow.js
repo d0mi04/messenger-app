@@ -10,13 +10,20 @@ function ChatWindow({ chat, user }) {
     useEffect(() => {
         socket.current = io('http://localhost:5000');
         socket.current.emit('joinRoom', chat._id);
-        socket.current.on('receiveMessage', (msg) => {
-            setMessages((prev) => [...prev, msg]);
+        const handleMessage = (msg) => {
+        setMessages((prev) => {
+            const exists = prev.some(m => m._id === msg._id);
+            if (exists) return prev;
+            return [...prev, msg];
         });
+    };
 
-        return () => {
-            socket.current.disconnect();
-        };
+    socket.current.on('receiveMessage', handleMessage);
+
+    return () => {
+        socket.current.off('receiveMessage', handleMessage); // 👈 ważne
+        socket.current.disconnect();
+    };
     }, [chat]);
 
     useEffect(() => {
