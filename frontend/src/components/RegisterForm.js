@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { usenavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import API from '../api/api';
 
 function RegisterForm() {
@@ -8,7 +8,7 @@ function RegisterForm() {
         email: '',
         password: ''
     });
-    const navigate = usenavigate();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
