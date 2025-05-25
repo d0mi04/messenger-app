@@ -13,9 +13,6 @@ logs/
 # production
 /build
 
-# skrypty
-scripts/
-
 # Pliki środowiskowe (tu masz hasło do MongoDB!)
 .env
 
