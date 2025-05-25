@@ -19,8 +19,8 @@
 
 - 🔐 Tworzenie konta użytkownika i logowanie z użyciem tokenów JWT
 - 💬 Wysyłanie i odbieranie wiadomości w czasie rzeczywistym
-- 📄 Lista wiadomości sortowana od najnowszych
-- 🔔 Nieodczytane wiadomości są wyświetlane na górze listy czatów
+- 📄 Lista wiadomości sortowana od najnowszych [ NOT TESTED YET ]
+- 🔔 Nieodczytane wiadomości są wyświetlane na górze listy czatów [ NOT TESTED YET ]
 - 🗂️ Każdy użytkownik ma dostęp do własnej listy rozmów
 
 ## 📦 Struktura projektu
@@ -45,15 +45,28 @@ messenger-app/
 ### Backend
 ```bash
 cd backend
-npm install
-npm start
+npm install express mongoose bcrypt jsonwebtoken cors socket.io
+npm install --save-dev nodemon
+npm run dev
 ```
 
 ### Frontend
 ```bash
 cd frontend
-npm install
+npm axios socket.io-client react-router-dom jwt-decode
 npm start
+```
+note: należy sprawdzić jaka wersja jwt-decode się zainstalowała --> ```npm list jwt-decode```
+
+jeżeli wersja 4 - nic nie zmieniać w kodzie --> /frontend/App.js ```import { jwtDecode } from 'jwt-decode';```
+
+jeżeli wersja 3 - wtedy należy zmienić w pliku **/frontend/App.js** import jwt-decode na defaultowy ```import jwt-decode from 'jwt-decode';``` 
+
+### Plik środowiskowy .env
+Należy przygotować klaster w MongoDB Atlas --> https://www.mongodb.com/docs/atlas/tutorial/create-atlas-account/ 
+```
+MONGO_URI=mongodb+srv://<login>:<hasło>@cluster0.mongodb.net/messenger-app
+JWT_SECRET=super_tajne_haslo
 ```
 
 ## 🛠 Przyszłe usprawnienia (TODO)
