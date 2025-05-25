@@ -69,6 +69,14 @@ MONGO_URI=mongodb+srv://<login>:<hasło>@cluster0.mongodb.net/messenger-app
 JWT_SECRET=super_tajne_haslo
 ```
 
+### seedowanie danych
+W katalogu backend/scripts znajduje sie plik **seed.js** - za jego pomocą można zainicjować dane. 
+Uruchomienie:
+```
+cd backend
+node scripts/seed.js
+```
+
 ## 🛠 Przyszłe usprawnienia (TODO)
 
 - ✅ Powiadomienia push o nowych wiadomościach
