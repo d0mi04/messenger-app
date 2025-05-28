@@ -4,7 +4,7 @@ const User = require('../models/User');
 const Chat = require('../models/Chat');
 const Message = require('../models/Message');
 
-const MONGO_URI = 'mongodb+srv://d0mi04:76I3OcxxC3qRzRLi@messenger-cluster.legi5kg.mongodb.net/?retryWrites=true&w=majority&appName=messenger-cluster';
+const MONGO_URI = 'your_mongo_db_uri';
 
 // mongoose.connect(MONGO_URI)
 //     .then(async () => {
